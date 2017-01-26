@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIWeatherXamarinApp.CityDetailsPage">
+  <ScrollView x:Name="scrollView" AutomationId="scrollView">
+    <Grid x:Name="root" VerticalOptions="Fill">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <ContentView Padding="0,0,0,0">
+        <Grid>
+          <Image x:Name="photoImage" Source="{Binding ImageUrl}" HorizontalOptions="Fill" HeightRequest="200"
+						VerticalOptions="Center" Aspect="AspectFill" />
+        </Grid>
+      </ContentView>
+
+      <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="14" VerticalOptions="Fill">
+        <StackLayout Padding="24,14,24,14" Spacing="4">
+          <Label Text="Wikipedia" FontSize="Medium"  />
+          <Label Text="{Binding WikipediaDescription}"  />
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="14" Padding="24,14,24,14" VerticalOptions="Fill">
+          <Button Text="View on Map" Clicked="OnViewMapBtnClicked"  />
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="14" Padding="24,14,24,14">
+          <Label Text="Live Weather Data" FontSize="Medium"  />          
+          <!-- Exercise 3-->       
+        </StackLayout>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+</ContentPage>
