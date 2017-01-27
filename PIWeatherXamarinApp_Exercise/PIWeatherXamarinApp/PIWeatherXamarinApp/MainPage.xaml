@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="PIWeatherXamarinApp.MainPage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="10, 20, 10, 0"
+                Android="10, 0"
+                WinPhone="10, 0" />
+  </ContentPage.Padding>
+  <ListView SeparatorVisibility="None" x:Name="listView" ItemSelected="OnListViewItemSelected">
+    <ListView.RowHeight>
+      <OnPlatform x:TypeArguments="x:Int32" iOS="80" Android="80" WinPhone="90" />
+    </ListView.RowHeight>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <!--<ImageCell ImageSource="{Binding ImageUrl}" Text="{Binding Name}" />-->
+        <ViewCell>
+          <ContentView Padding="10,0">
+            <AbsoluteLayout>
+              <StackLayout Orientation="Horizontal" Spacing="0" AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize">
+                <ContentView Padding="3" WidthRequest="54">
+                  <AbsoluteLayout>
+                    <ic:CircleImage Source="{Binding ImageUrl}" x:Name="CityProfilePhoto" BorderColor="#547799" BorderThickness="2" HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="true" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" />
+                  </AbsoluteLayout>
+                </ContentView>
+                <ContentView Padding="10,10,10,10">
+                  <StackLayout Spacing="0">
+                    <Label Text="{Binding Name}" HeightRequest="20" VerticalTextAlignment="End" FontSize="20" VerticalOptions="StartAndExpand" />
+                  </StackLayout>
+                </ContentView>
+              </StackLayout>
+            </AbsoluteLayout>
+          </ContentView>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>
