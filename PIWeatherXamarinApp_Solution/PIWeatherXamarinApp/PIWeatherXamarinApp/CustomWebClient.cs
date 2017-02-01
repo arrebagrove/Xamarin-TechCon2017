@@ -14,11 +14,11 @@ namespace PIWeatherXamarinApp
 {
     public class CustomWebClient
     {
-        private string baseUrl = "https://cross-platform-lab-uc2017.osisoft.com/piwebapi/";
+        private string baseUrl = "https://pisrv01.pischool.int/piwebapi/";
         private async Task<string> DownloadWebData(string url)
         {
             var handler = new HttpClientHandler();
-            handler.Credentials = new NetworkCredential("pilabuser", "PIWebAPI2015");
+            handler.Credentials = new NetworkCredential("student01", "student", "pischool");
             HttpClient httpClient = new HttpClient(handler);
             HttpResponseMessage httpMessage = await httpClient.GetAsync(url);
             if (httpMessage.IsSuccessStatusCode == true)
@@ -37,7 +37,7 @@ namespace PIWeatherXamarinApp
         private async Task<string> PostWebData(string url, HttpContent httpContent)
         {
             var handler = new HttpClientHandler();
-            handler.Credentials = new NetworkCredential("pilabuser", "PIWebAPI2015");
+            handler.Credentials = new NetworkCredential("student01", "student", "pischool");
             HttpClient httpClient = new HttpClient(handler);
             HttpResponseMessage httpMessage = await httpClient.PostAsync(url, httpContent);
             if (httpMessage.IsSuccessStatusCode == true)
@@ -65,12 +65,12 @@ namespace PIWeatherXamarinApp
 
         private async Task<Cities> GetCitiesDataWithBatch()
         {
-			//Exercise 5
+            //Exercise 5
             Dictionary<string, PIBatchRequest> globalBatch = new Dictionary<string, PIBatchRequest>();
             PIBatchRequest batchGetDbWebId = new PIBatchRequest()
             {
                 Method = "GET",
-                Resource = baseUrl + @"assetdatabases?path=\\pifitness-srv2\Weather"
+                Resource = baseUrl + @"assetdatabases?path=\\pisrv01\Weather"
             };
 
             PIBatchRequest batchGetElementsWebIds = new PIBatchRequest()
@@ -114,8 +114,8 @@ namespace PIWeatherXamarinApp
 
         private async Task<Cities> GetCitiesDataNoBatch()
         {
-			//Exercise 1
-            string url = baseUrl + @"assetdatabases?path=\\pifitness-srv2\Weather";
+            //Exercise 1
+            string url = baseUrl + @"assetdatabases?path=\\pisrv01\Weather";
             string response = await DownloadWebData(url);
             PIObject dbData = JsonConvert.DeserializeObject<PIObject>(response);
 
@@ -139,7 +139,7 @@ namespace PIWeatherXamarinApp
             return cities;
         }
 
-        public async Task<Cities> GetCitiesData(bool useBatch = true)
+        public async Task<Cities> GetCitiesData(bool useBatch = false)
         {
             if (useBatch == false)
             {

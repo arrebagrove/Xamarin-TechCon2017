@@ -19,7 +19,6 @@ namespace PIWeatherXamarinApp
             //Exercise 2
             this.city = selectedCity;
             Position position = new Position(city.Latitude, city.Longitude);
-
             MapSpan mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromMiles(40));
             var map = new Map(mapSpan);
             var pin = new Pin();
