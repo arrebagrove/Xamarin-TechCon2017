@@ -14,11 +14,11 @@ namespace PIWeatherXamarinApp
 {
     public class CustomWebClient
     {
-        private string baseUrl = "https://cross-platform-lab-uc2017.osisoft.com/piwebapi/";
+        private string baseUrl = "https://pisrv01.pischool.int/piwebapi/";
         private async Task<string> DownloadWebData(string url)
         {
             var handler = new HttpClientHandler();
-            handler.Credentials = new NetworkCredential("pilabuser", "PIWebAPI2015");
+            handler.Credentials = new NetworkCredential("student01", "student", "pischool");
             HttpClient httpClient = new HttpClient(handler);
             HttpResponseMessage httpMessage = await httpClient.GetAsync(url);
             if (httpMessage.IsSuccessStatusCode == true)
@@ -37,7 +37,7 @@ namespace PIWeatherXamarinApp
         private async Task<string> PostWebData(string url, HttpContent httpContent)
         {
             var handler = new HttpClientHandler();
-            handler.Credentials = new NetworkCredential("pilabuser", "PIWebAPI2015");
+            handler.Credentials = new NetworkCredential("student01", "student", "pischool");
             HttpClient httpClient = new HttpClient(handler);
             HttpResponseMessage httpMessage = await httpClient.PostAsync(url, httpContent);
             if (httpMessage.IsSuccessStatusCode == true)
@@ -76,7 +76,7 @@ namespace PIWeatherXamarinApp
             return null;
         }
 
-        public async Task<Cities> GetCitiesData(bool useBatch = true)
+        public async Task<Cities> GetCitiesData(bool useBatch = false)
         {
             if (useBatch == false)
             {
@@ -87,5 +87,7 @@ namespace PIWeatherXamarinApp
                 return await GetCitiesDataWithBatch();
             }
         }
+
+
     }
 }

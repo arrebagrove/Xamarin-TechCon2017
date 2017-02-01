@@ -33,7 +33,6 @@ namespace PIWeatherXamarinApp
                 data.Add(new WeatherData("Cloud Cover", SelectedCity.CloudCover.ToString(), name));
                 data.Add(new WeatherData("Temperature", SelectedCity.Temperature.ToString(), name));
                 data.Add(new WeatherData("Wind Speed", SelectedCity.WindSpeed.ToString(), name));
-                data.Add(new WeatherData("Weather Description", SelectedCity.WeatherDescription.ToString(), name));
                 data.Add(new WeatherData("Humidity", SelectedCity.Humidity.ToString(), name));
 
             });
