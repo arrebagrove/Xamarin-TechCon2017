@@ -26,6 +26,8 @@
         <StackLayout Orientation="Vertical" Spacing="14" Padding="24,14,24,14">
           <Label Text="Live Weather Data" FontSize="Medium"  />
           <!--Exercise 3-->
+          <!--For more information https://developer.xamarin.com/guides/xamarin-forms/templates/data-templates/creating/-->
+          <!--Use ItemSelected="OnListViewItemSelected" to call the OnListViewItemSelected method on the .xaml.cs file-->
           <ListView x:Name="WeatherListView" ItemSelected="OnListViewItemSelected">
             <ListView.ItemTemplate>
               <DataTemplate>

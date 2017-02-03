@@ -41,6 +41,8 @@ namespace PIWeatherXamarinApp
             InitializeComponent();
 
             //Exercise3
+
+            //The ItemsSource of the ListView allows you to define the source of the ListView data.
             WeatherListView.ItemsSource = data;
 
         }
@@ -48,6 +50,7 @@ namespace PIWeatherXamarinApp
         public async void OnViewMapBtnClicked(object sender, EventArgs e)
         {
             //Exercise 2   
+            //Navigation.PushAsync is used to change the page shown on the screen
             await Navigation.PushAsync(new MapPage(SelectedCity));
         }
 
