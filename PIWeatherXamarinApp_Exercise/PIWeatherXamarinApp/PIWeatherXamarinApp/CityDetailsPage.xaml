@@ -28,6 +28,7 @@
             <!-- Exercise 3-->
             <!--For more information https://developer.xamarin.com/guides/xamarin-forms/templates/data-templates/creating/-->
           <!--</ListView>-->
+          <!-- Do not forget to uncomment line 44 in CityDetailsPage.xaml-->
         </StackLayout>
       </StackLayout>
     </Grid>

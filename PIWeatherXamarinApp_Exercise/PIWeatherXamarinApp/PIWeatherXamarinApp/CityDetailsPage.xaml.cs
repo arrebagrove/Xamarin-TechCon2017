@@ -40,7 +40,8 @@ namespace PIWeatherXamarinApp
             BindingContext = SelectedCity;
             InitializeComponent();
 
-            WeatherListView.ItemsSource = data;
+            //Uncomment the line below when you've finished Exercise 3
+            //WeatherListView.ItemsSource = data;
         }
 
         public async void OnViewMapBtnClicked(object sender, EventArgs e)
