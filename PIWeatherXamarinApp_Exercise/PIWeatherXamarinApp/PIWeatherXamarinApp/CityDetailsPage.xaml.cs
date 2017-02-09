@@ -40,17 +40,20 @@ namespace PIWeatherXamarinApp
             BindingContext = SelectedCity;
             InitializeComponent();
 
-            //Exervcise3   
+            WeatherListView.ItemsSource = data;
         }
 
         public async void OnViewMapBtnClicked(object sender, EventArgs e)
-        {     
-            //Exercise 2   
+        {
+            //Exercise 2
+            //Use Navigation.PushAsync to change page  
         }
 
         public async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             //Exercise 4
+            WeatherData weatherData = ((ListView)sender).SelectedItem as WeatherData;
+            //Use Navigation.PushAsync to change page
         }
     }
 }

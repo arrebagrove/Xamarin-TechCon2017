@@ -40,9 +40,7 @@ namespace PIWeatherXamarinApp
             BindingContext = SelectedCity;
             InitializeComponent();
 
-            //Exercise3
 
-            //The ItemsSource of the ListView allows you to define the source of the ListView data.
             WeatherListView.ItemsSource = data;
 
         }

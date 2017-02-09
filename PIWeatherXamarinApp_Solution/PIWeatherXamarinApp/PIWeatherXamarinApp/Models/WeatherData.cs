@@ -23,12 +23,6 @@ namespace PIWeatherXamarinApp.Models
 
         internal string GetCoresightUrl(bool useCredentialsOnUrl)
         {
-            //Exercise 4
-
-            //According to the input's value, the credentials might be added to the PI Coresight URL or not.
-            //This is an example of a URL with credentials: http://username:password@webserver.com
-            //Windows does not accept this URL due to security restrictions.
-
             string credentials = useCredentialsOnUrl == true ? @"student01:student@" : string.Empty;
             string url = "https://" + credentials + @"pisrv01.pischool.int/Coresight/#/Displays/AdHoc?DataItems=\\PISRV01\Weather\" + System.Net.WebUtility.UrlEncode(CityName) + " | " + System.Net.WebUtility.UrlEncode(Property) + " &mode=kiosk";
             return url;

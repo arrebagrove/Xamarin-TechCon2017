@@ -16,9 +16,11 @@ namespace PIWeatherXamarinApp
 
         public MapPage(City selectedCity)
         {
-            
+            Title = "Map";
             this.city = selectedCity;
             //Exercise 2       
+            //HINT: https://developer.xamarin.com/guides/xamarin-forms/user-interface/map/
+            //HINT: Use the Latitude and Longitude properties from City input
         }
     }
 }

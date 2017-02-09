@@ -23,8 +23,9 @@ namespace PIWeatherXamarinApp.Models
 
         internal string GetCoresightUrl(bool useCredentialsOnUrl)
         {
-            //Exercise 4
-            return string.Empty;
+            string credentials = useCredentialsOnUrl == true ? @"student01:student@" : string.Empty;
+            string url = "https://" + credentials + @"pisrv01.pischool.int/Coresight/#/Displays/AdHoc?DataItems=\\PISRV01\Weather\" + System.Net.WebUtility.UrlEncode(CityName) + " | " + System.Net.WebUtility.UrlEncode(Property) + " &mode=kiosk";
+            return url;
         }
     }
 }

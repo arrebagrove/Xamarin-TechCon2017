@@ -66,13 +66,40 @@ namespace PIWeatherXamarinApp
         private async Task<Cities> GetCitiesDataWithBatch()
         {
             //Exercise 5
+            //Please refer to the following page for more information about Batch: https://pisrv01.pischool.int/piwebapi/help/controllers/batch/actions/execute
+            Dictionary<string, PIBatchRequest> globalBatch = new Dictionary<string, PIBatchRequest>();
+
+            PIListObject imageAttributes;
+            PIValue[] piValues;
+            //Cities cities = new Cities(imageAttributes, piValues);
+            //return cities;
             return null;
         }
 
 
         private async Task<Cities> GetCitiesDataNoBatch()
         {
-            //Exercise 1
+            //Exercise 1           
+            //First HTTP request: Get the WebId of the AF database Weather
+
+            string url = baseUrl + @"assetdatabases?path=\\pisrv01\Weather";
+            string response = await DownloadWebData(url);
+            PIObject dbData = JsonConvert.DeserializeObject<PIObject>(response);
+
+            //Second HTTP request:  Find all the 50 attributes called Wikipedia Thumbnail Url 
+            //HINT: https://pisrv01.pischool.int/piwebapi/help/controllers/element/actions/findelementattributes
+            //HINT: Use JsonConvert.DeserializeObject to convert a JSON string to C# object
+            PIListObject imageAttributes; //Retrieve the response and deserialize into imageAttributes
+
+
+
+            //Third HTTP request: Get the values of those 50 attributes by making a bulk call
+            //HINT: https://pisrv01.pischool.int/piwebapi/help/controllers/streamset/actions/getvaluesadhoc
+            PIListObject imagesValues; //Retrieve the response and deserialize into imagesValues
+
+            //Using both PIListObjects as inputs, the Cities object is created.
+            //Cities cities = new Cities(imageAttributes, imagesValues);
+            //return cities;
             return null;
         }
 

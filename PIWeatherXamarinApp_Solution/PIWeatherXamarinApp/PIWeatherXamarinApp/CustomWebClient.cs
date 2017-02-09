@@ -147,17 +147,18 @@ namespace PIWeatherXamarinApp
             PIObject dbData = JsonConvert.DeserializeObject<PIObject>(response);
 
             //Second HTTP request against PI Web API to get the WebId from all attributes "Wikipedia Thumbnail Url" (one per each city).
+            //HINT: https://pisrv01.pischool.int/piwebapi/help/controllers/element/actions/findelementattributes
             url = baseUrl + "assetdatabases/" + dbData.WebId + "/elementattributes?attributeNameFilter=*Wikipedia%20Thumbnail%20Url*";
             response = await DownloadWebData(url);
 
-            //Third HTTP request against PI Web API to get the current values from all attributes "Wikipedia Thumbnail Url" using the WebId retrieved from the previous call.
-            PIListObject imageAttributes = JsonConvert.DeserializeObject<PIListObject>(response);
+             PIListObject imageAttributes = JsonConvert.DeserializeObject<PIListObject>(response);
 
+            //Third HTTP request against PI Web API to get the current values from all attributes "Wikipedia Thumbnail Url" using the WebId retrieved from the previous call.
             //Get the WebIds from the PIListObject
             List<string> webIds = imageAttributes.GetItemsWebIds();
 
             //Using the GetValuesAdHoc method from StreamSet Controller
-            //For more information: https://pisrv01.pischool.int/piwebapi/help/controllers/streamset/actions/getvaluesadhoc
+            //HINT: https://pisrv01.pischool.int/piwebapi/help/controllers/streamset/actions/getvaluesadhoc
             url = baseUrl + "streamsets/value?";
             foreach (string webId in webIds)
             {
