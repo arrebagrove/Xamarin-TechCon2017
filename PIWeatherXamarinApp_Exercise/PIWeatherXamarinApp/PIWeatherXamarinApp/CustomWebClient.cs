@@ -75,8 +75,9 @@ namespace PIWeatherXamarinApp
             HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             string url = baseUrl + "/batch";
             string response = await PostWebData(url, httpContent);
+            Dictionary<string, PIBatchResponse> batchData = JsonConvert.DeserializeObject<Dictionary<string, PIBatchResponse>>(response);
 
-            //Process the response and fill data into imageAttributes and piValues
+            //Process batchData and fill data into imageAttributes and piValues
 
             PIListObject imageAttributes;
             PIValue[] piValues;
