@@ -24,10 +24,10 @@
         </StackLayout>
         <StackLayout Orientation="Vertical" Spacing="14" Padding="24,14,24,14">
           <Label Text="Live Weather Data" FontSize="Medium"  />
-          <ListView x:Name="WeatherListView" ItemSelected="OnListViewItemSelected">
+          <!--<ListView x:Name="WeatherListView" ItemSelected="OnListViewItemSelected">-->
             <!-- Exercise 3-->
             <!--For more information https://developer.xamarin.com/guides/xamarin-forms/templates/data-templates/creating/-->
-          </ListView>
+          <!--</ListView>-->
         </StackLayout>
       </StackLayout>
     </Grid>

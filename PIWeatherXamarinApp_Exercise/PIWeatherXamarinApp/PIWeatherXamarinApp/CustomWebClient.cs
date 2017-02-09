@@ -69,6 +69,15 @@ namespace PIWeatherXamarinApp
             //Please refer to the following page for more information about Batch: https://pisrv01.pischool.int/piwebapi/help/controllers/batch/actions/execute
             Dictionary<string, PIBatchRequest> globalBatch = new Dictionary<string, PIBatchRequest>();
 
+            //Complete the globalBatch
+
+            string json = JsonConvert.SerializeObject(globalBatch);
+            HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            string url = baseUrl + "/batch";
+            string response = await PostWebData(url, httpContent);
+
+            //Process the response and fill data into imageAttributes and piValues
+
             PIListObject imageAttributes;
             PIValue[] piValues;
             //Cities cities = new Cities(imageAttributes, piValues);
